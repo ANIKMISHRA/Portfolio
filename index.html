@@ -139,9 +139,10 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 8rem 2rem 4rem;
+      padding: 8rem 0 4rem;
       position: relative;
       overflow: hidden;
+      max-width: 100%;
     }
 
     #tsparticles {
@@ -157,13 +158,18 @@
       top: 50%;
       transform: translateY(-50%);
       width: 50%;
-      height: 100%;
+      height: 600px;
+      min-height: 400px;
       display: flex;
       align-items: center;
       justify-content: center;
       pointer-events: auto;
       z-index: 0;
       cursor: grab;
+    }
+
+    #globe-container canvas {
+      display: block;
     }
 
     #globe-container:active {
@@ -177,10 +183,11 @@
     }
 
     .hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
+      width: 50%;
+      max-width: 600px;
       position: relative;
       z-index: 1;
+      padding-left: 4rem;
     }
 
     .hero-badge {
@@ -224,10 +231,10 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      font-weight: 800;
-      line-height: 1.0;
-      letter-spacing: -0.03em;
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
       margin-bottom: 1.5rem;
     }
 
@@ -240,11 +247,11 @@
     }
 
     .hero-desc {
-      font-size: 1.125rem;
+      font-size: 1rem;
       color: var(--text2);
       max-width: 560px;
       margin-bottom: 2.5rem;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.75;
     }
 
@@ -310,8 +317,8 @@
 
     .stat-num {
       font-family: var(--font-display);
-      font-size: 1.75rem;
-      font-weight: 800;
+      font-size: 1.5rem;
+      font-weight: 700;
       color: var(--text);
       letter-spacing: -0.02em;
     }
@@ -352,10 +359,10 @@
 
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(1.75rem, 4vw, 2.75rem);
-      font-weight: 800;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
       letter-spacing: -0.02em;
-      line-height: 1.1;
+      line-height: 1.15;
       margin-bottom: 3rem;
     }
 
@@ -369,6 +376,10 @@
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: start;
+    }
+
+    .about-grid > * {
+      min-width: 0;
     }
 
     .about-text p {
@@ -413,8 +424,8 @@
 
     .highlight-content h4 {
       font-family: var(--font-display);
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 0.875rem;
+      font-weight: 600;
       margin-bottom: 0.2rem;
     }
 
@@ -427,7 +438,7 @@
     /* ---------- SKILLS ---------- */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
       gap: 1.25rem;
     }
 
@@ -547,8 +558,8 @@
 
     .exp-title {
       font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-size: 0.975rem;
+      font-weight: 600;
     }
 
     .exp-period {
@@ -598,6 +609,10 @@
       gap: 1.25rem;
     }
 
+    .projects-grid > * {
+      min-width: 0;
+    }
+
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -634,16 +649,16 @@
 
     .project-num {
       font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 800;
+      font-size: 1.5rem;
+      font-weight: 600;
       color: var(--border2);
       line-height: 1;
     }
 
     .project-title {
       font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-size: 0.975rem;
+      font-weight: 600;
       margin-bottom: 0.25rem;
     }
 
@@ -677,6 +692,10 @@
       gap: 1.25rem;
     }
 
+    .edu-grid > * {
+      min-width: 0;
+    }
+
     .edu-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -691,8 +710,8 @@
 
     .edu-degree {
       font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: 0.925rem;
+      font-weight: 600;
       margin-bottom: 0.4rem;
       line-height: 1.3;
     }
@@ -795,8 +814,8 @@
 
     .contact-email {
       font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
+      font-size: 1rem;
+      font-weight: 600;
       color: var(--accent);
       text-decoration: none;
       display: inline-block;
@@ -835,7 +854,40 @@
       transform: translateY(0);
     }
 
-    /* ---------- MOBILE ---------- */
+    /* ---------- TABLET (769px – 1024px) ---------- */
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 1.25rem;
+      }
+
+      #hero {
+        padding: 8rem 0 4rem;
+      }
+
+      .hero-inner {
+        width: 55%;
+        padding-left: 2.5rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .about-grid {
+        gap: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      #contact-section {
+        padding: 2.5rem 2rem;
+      }
+    }
+
+    /* ---------- MOBILE (≤ 768px) ---------- */
     @media (max-width: 768px) {
       nav {
         padding: 1rem;
@@ -846,7 +898,13 @@
       }
 
       #hero {
-        padding: 7rem 1.25rem 3rem;
+        padding: 6.5rem 1.25rem 3rem;
+      }
+
+      .hero-inner {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
       }
 
       section {
@@ -867,10 +925,171 @@
 
       #contact-section {
         padding: 2rem 1.25rem;
+        border-radius: 16px;
       }
 
       .hero-stats {
-        gap: 1.5rem;
+        gap: 1.25rem;
+      }
+
+      .hero-actions {
+        gap: 0.75rem;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.85rem;
+      }
+
+      .exp-item {
+        gap: 1rem;
+      }
+
+      .exp-content {
+        padding: 1.25rem;
+      }
+
+      .skill-card {
+        padding: 1.25rem;
+      }
+
+      .project-card {
+        padding: 1.25rem;
+      }
+
+      .edu-card {
+        padding: 1.25rem;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .contact-link {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+
+      .hero-desc {
+        font-size: 1rem;
+      }
+    }
+
+    /* ---------- SMALL PHONES (≤ 480px) ---------- */
+    @media (max-width: 480px) {
+      nav {
+        padding: 0.85rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 1rem;
+      }
+
+      #hero {
+        padding: 6rem 1rem 2.5rem;
+      }
+
+      .hero-inner {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+
+      .hero-title {
+        font-size: clamp(1.75rem, 8vw, 2.2rem);
+        letter-spacing: -0.02em;
+      }
+
+      .hero-desc {
+        font-size: 0.9rem;
+      }
+
+      .hero-stats {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .stat-num {
+        font-size: 1.4rem;
+      }
+
+      .stat-label {
+        font-size: 0.72rem;
+      }
+
+      .section-title {
+        font-size: clamp(1.25rem, 6vw, 1.6rem);
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 0.6rem 1rem;
+        font-size: 0.82rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+
+      .hero-actions a {
+        width: fit-content;
+      }
+
+      #contact-section {
+        padding: 1.5rem 1rem;
+      }
+
+      .contact-email {
+        font-size: 0.9rem;
+        word-break: break-all;
+      }
+
+      .exp-item {
+        gap: 0.75rem;
+      }
+
+      .exp-dot {
+        width: 26px;
+        height: 26px;
+      }
+
+      .exp-title {
+        font-size: 0.95rem;
+      }
+
+      .mobile-menu a {
+        font-size: 1.6rem;
+      }
+
+      footer {
+        padding: 1.5rem 1rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    /* ---------- VERY SMALL (≤ 360px) ---------- */
+    @media (max-width: 360px) {
+      .hero-title {
+        font-size: clamp(1.6rem, 9vw, 2rem);
+      }
+
+      .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.7rem;
+      }
+
+      .stat {
+        min-width: 60px;
       }
     }
 
@@ -972,7 +1191,7 @@
   </div>
 
   <!-- HERO -->
-  <section id="hero" style="max-width:100%; padding-left:2rem; padding-right:2rem;">
+  <section id="hero">
     <div id="tsparticles"></div>
     <div id="globe-container"></div>
     <div class="hero-inner">
@@ -1370,8 +1589,8 @@
 
   <!-- 3D Globe & Particles Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <script src="https://unpkg.com/three"></script>
-  <script src="https://unpkg.com/globe.gl"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/globe.gl@2.29.2/dist/globe.gl.min.js"></script>
 
   <script>
     // Initialize tsParticles for Starry Background
@@ -1418,14 +1637,19 @@
     });
 
     // Initialize 3D Globe
-    const globeContainer = document.getElementById('globe-container');
-    if (globeContainer && window.Globe) {
+    function initGlobe() {
+      const globeContainer = document.getElementById('globe-container');
+      if (!globeContainer || !window.Globe) return;
+
+      const W = globeContainer.offsetWidth || 600;
+      const H = globeContainer.offsetHeight || 600;
+
       const globe = Globe()(globeContainer)
-        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
-        .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
+        .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
         .backgroundColor('rgba(0,0,0,0)')
-        .width(globeContainer.clientWidth)
-        .height(globeContainer.clientHeight || 600);
+        .width(W)
+        .height(H);
 
       const N = 300;
       const gData = [...Array(N).keys()].map(() => ({
@@ -1445,12 +1669,16 @@
 
       // Handle resize
       window.addEventListener('resize', () => {
-        if (globeContainer) {
-          globe.width(globeContainer.clientWidth);
-          globe.height(globeContainer.clientHeight || 600);
+        const newW = globeContainer.offsetWidth;
+        const newH = globeContainer.offsetHeight || 600;
+        if (newW > 0) {
+          globe.width(newW).height(newH);
         }
       });
     }
+
+    // Wait for full page load so container has dimensions
+    window.addEventListener('load', initGlobe);
   </script>
 </body>
 
